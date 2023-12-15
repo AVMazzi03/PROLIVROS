@@ -1,0 +1,51 @@
+﻿ce  
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "back", "back", "{F85BBE6A-E2E0-400F-9A65-DB1C85457EE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{431080CD-B113-4D1B-90C2-E360DAF9646F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prolivros.api", "back\src\prolivros.api\prolivros.api.csproj", "{CBDD8E83-4413-429D-B8B9-D5CD1B8FBFEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prolivros.application", "back\src\ProLivros.Application\prolivros.application.csproj", "{7C816787-1A58-4DA4-B4C7-170E1587D384}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProLivros.Domain", "back\src\ProLivros.Domain\ProLivros.Domain.csproj", "{EA96982D-8D33-444F-BDE1-3E2FA077954E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProLivros.Persistence", "back\src\ProLivros.Persistence\ProLivros.Persistence.csproj", "{619089DC-A2A2-4F7D-B5B1-6E8259DDB96E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBDD8E83-4413-429D-B8B9-D5CD1B8FBFEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBDD8E83-4413-429D-B8B9-D5CD1B8FBFEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBDD8E83-4413-429D-B8B9-D5CD1B8FBFEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBDD8E83-4413-429D-B8B9-D5CD1B8FBFEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C816787-1A58-4DA4-B4C7-170E1587D384}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C816787-1A58-4DA4-B4C7-170E1587D384}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C816787-1A58-4DA4-B4C7-170E1587D384}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C816787-1A58-4DA4-B4C7-170E1587D384}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA96982D-8D33-444F-BDE1-3E2FA077954E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA96982D-8D33-444F-BDE1-3E2FA077954E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA96982D-8D33-444F-BDE1-3E2FA077954E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA96982D-8D33-444F-BDE1-3E2FA077954E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{619089DC-A2A2-4F7D-B5B1-6E8259DDB96E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{619089DC-A2A2-4F7D-B5B1-6E8259DDB96E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{619089DC-A2A2-4F7D-B5B1-6E8259DDB96E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{619089DC-A2A2-4F7D-B5B1-6E8259DDB96E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{431080CD-B113-4D1B-90C2-E360DAF9646F} = {F85BBE6A-E2E0-400F-9A65-DB1C85457EE4}
+		{CBDD8E83-4413-429D-B8B9-D5CD1B8FBFEE} = {431080CD-B113-4D1B-90C2-E360DAF9646F}
+		{7C816787-1A58-4DA4-B4C7-170E1587D384} = {431080CD-B113-4D1B-90C2-E360DAF9646F}
+		{EA96982D-8D33-444F-BDE1-3E2FA077954E} = {431080CD-B113-4D1B-90C2-E360DAF9646F}
+		{619089DC-A2A2-4F7D-B5B1-6E8259DDB96E} = {431080CD-B113-4D1B-90C2-E360DAF9646F}
+	EndGlobalSection
+EndGlobal
