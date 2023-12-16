@@ -4,9 +4,9 @@ using ProLivros.Persistence.Mappping;
 
 namespace ProLivros.Persistence
 {
-    public class ProLivrosAPIContext : DbContext
+    public class ProLivrosContext : DbContext
     {
-        public ProLivrosAPIContext (DbContextOptions<ProLivrosAPIContext> options)
+        public ProLivrosContext (DbContextOptions<ProLivrosContext> options)
             : base(options){}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

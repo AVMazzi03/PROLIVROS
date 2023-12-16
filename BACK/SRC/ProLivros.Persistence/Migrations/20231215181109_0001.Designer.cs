@@ -11,7 +11,7 @@ using ProLivros.Persistence;
 
 namespace ProLivros.Persistence.Migrations
 {
-    [DbContext(typeof(ProLivrosAPIContext))]
+    [DbContext(typeof(ProLivrosContext))]
     [Migration("20231215181109_0001")]
     partial class _0001
     {

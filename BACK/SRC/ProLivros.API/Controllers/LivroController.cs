@@ -10,9 +10,9 @@ namespace ProLivros.API.Controllers
     [ApiController]
     public class LivroController : ControllerBase
     {
-        private readonly ProLivrosAPIContext _context;
+        private readonly ProLivrosContext _context;
 
-        public LivroController(ProLivrosAPIContext context)
+        public LivroController(ProLivrosContext context)
         {
             _context = context;
         }

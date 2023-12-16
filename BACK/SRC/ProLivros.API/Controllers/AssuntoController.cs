@@ -15,9 +15,9 @@ namespace ProLivros.API.Controllers
     [ApiController]
     public class AssuntoController : ControllerBase
     {
-        private readonly ProLivrosAPIContext _context;
+        private readonly ProLivrosContext _context;
 
-        public AssuntoController(ProLivrosAPIContext context)
+        public AssuntoController(ProLivrosContext context)
         {
             _context = context;
         }

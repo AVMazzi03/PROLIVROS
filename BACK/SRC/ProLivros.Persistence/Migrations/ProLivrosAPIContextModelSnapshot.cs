@@ -10,7 +10,7 @@ using ProLivros.Persistence;
 
 namespace ProLivros.Persistence.Migrations
 {
-    [DbContext(typeof(ProLivrosAPIContext))]
+    [DbContext(typeof(ProLivrosContext))]
     partial class ProLivrosAPIContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -28,7 +28,7 @@ namespace ProLivros.Domain
         public string? Capa { get; set; }
 
         [NotMapped]
-        public IEnumerable<Autor> LivroAutor { get; set; }
+        public IEnumerable<LivroAutor> LivroAutor { get; set; }
         [NotMapped]
         public IEnumerable<LivroAssunto> LivroAssunto { get; set; }
     }

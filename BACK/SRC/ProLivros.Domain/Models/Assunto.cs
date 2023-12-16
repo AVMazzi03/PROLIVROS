@@ -13,6 +13,6 @@ namespace ProLivros.Domain
 
         public int CodAs { get; set; }
         public string? Descricao { get; set; }
-        public ICollection<Livro>? Livros { get; set; }
+        public ICollection<LivroAssunto>? LivroAssunto { get; set; }
     }
 }

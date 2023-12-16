@@ -10,9 +10,9 @@ namespace ProLivros.API.Controllers
     [ApiController]
     public class AutorController : ControllerBase
     {
-        private readonly ProLivrosAPIContext _context;
+        private readonly ProLivrosContext _context;
 
-        public AutorController(ProLivrosAPIContext context)
+        public AutorController(ProLivrosContext context)
         {
             _context = context;
         }
