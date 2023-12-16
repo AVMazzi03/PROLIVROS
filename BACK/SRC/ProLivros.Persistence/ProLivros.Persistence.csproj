@@ -31,4 +31,11 @@
   </ItemGroup>
 
 
+
+  <ItemGroup>
+    <Folder Include="Contratos\" />
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
+
 </Project>
