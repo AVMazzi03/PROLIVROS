@@ -65,7 +65,7 @@ namespace ProLivros.Application
             try
             {
                 var livro = await _livroPersistence.GetLivroByIdAsync(livroId);
-                if (livro == null) throw new Exception("Não foi possível excluir livro.");
+                if (livro == null) throw new Exception("Nï¿½o foi possï¿½vel excluir livro.");
 
                 _geralPersistence.Delete<Livro>(livro);
                 return await _geralPersistence.SaveChangedAsync();
@@ -73,7 +73,7 @@ namespace ProLivros.Application
             catch (Exception ex)
             {
 
-                throw new Exception("Erro ao Editar Livro! " + ex.Message);
+                throw new Exception("Erro ao excluir Livro! " + ex.Message);
             }
         }
 

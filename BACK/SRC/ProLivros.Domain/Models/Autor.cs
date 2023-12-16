@@ -15,7 +15,7 @@ namespace ProLivros.Domain
         //    Livros = livros;
         // }
 
-        public int? CodAu { get; set; }
+        public int CodAu { get; set; }
         public string? Nome { get; set; }
 
         public ICollection<LivroAutor>? LivroAutor { get; set; }

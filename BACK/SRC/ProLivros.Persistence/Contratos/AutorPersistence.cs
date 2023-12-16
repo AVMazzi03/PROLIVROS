@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ProLivros.Domain;
-using ProLivros.Persistence.Interfaces;
 
 namespace ProLivros.Persistence
 {
@@ -29,7 +28,7 @@ namespace ProLivros.Persistence
             query.OrderBy(l => l.Nome);
             return await query.ToArrayAsync();
         }
-        public async Task<Autor[]> GetAllAutoresByNomeAsync(string Nome)
+        public async Task<Autor[]> GetAllAutoresByNomeAsync(string nome)
         {
             IQueryable<Autor> query = _context.Autores;
 
@@ -38,7 +37,7 @@ namespace ProLivros.Persistence
                     .ThenInclude(lau => lau.Livro);
 
             query.OrderBy(l => l.Nome)
-                     .Where(au => au.Nome.ToLower().Contains(Nome.ToLower()));
+                     .Where(au => au.Nome.ToLower().Contains(nome.ToLower()));
             return await query.ToArrayAsync();
         }
         public async Task<Autor> GetAutorByIdAsync(int autorId)

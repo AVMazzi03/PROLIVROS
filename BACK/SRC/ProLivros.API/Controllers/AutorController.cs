@@ -80,7 +80,7 @@ namespace ProLivros.API.Controllers
         // POST: api/Autor
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Autor>> PostAutor(Autor autor)
+        public async Task<ActionResult<Assunto>> PostAutor(Autor autor)
         {
           if (_context.Autores == null)
           {

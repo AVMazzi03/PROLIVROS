@@ -10,6 +10,6 @@ namespace ProLivros.Domain
         public int Livro_Codl { get; set; }
         public Livro? Livro { get; set; }
         public int  Autor_CodAu { get; set; }
-        public Autor? Autor { get; set; }
+        public Assunto? Autor { get; set; }
     }
 }
