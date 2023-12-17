@@ -11,6 +11,11 @@
     <ProjectReference Include="..\prolivros.Persistence\ProLivros.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
 
 </Project>
 

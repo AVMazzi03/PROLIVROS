@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 using ProLivros.Persistence;
 using ProLivros.Domain;
+using ProLivros.Application;
 
 namespace ProLivros.API.Controllers
 {
@@ -10,112 +11,137 @@ namespace ProLivros.API.Controllers
     [ApiController]
     public class LivroController : ControllerBase
     {
-        private readonly ProLivrosContext _context;
+        private readonly ILivroService _livroService;
 
-        public LivroController(ProLivrosContext context)
+        public LivroController(ILivroService livroService)
         {
-            _context = context;
+            _livroService = livroService;
         }
 
         // GET: api/Livro
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Livro>>> GetLivros()
         {
-          if (_context.Livros == null)
-          {
-              return NotFound();
-          }
-            return await _context.Livros
-            .ToListAsync();
-        }
-
-        // GET: api/Livro/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Livro>> GetLivro(int? id)
-        {
-          if (_context.Livros == null)
-          {
-              return NotFound();
-          }
-            var livro = await _context.Livros.FindAsync(id);
-
-            if (livro == null)
-            {
-                return NotFound();
-            }
-
-            return livro;
-        }
-
-        // PUT: api/Livro/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutLivro(int? id, Livro livro)
-        {
-            if (id != livro.Codl)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(livro).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!LivroExists(id))
+                var livros = await _livroService.GetAllLivrosAsync();
+                if (_livroService.GetAllLivrosAsync() == null)
                 {
-                    return NotFound();
+                    return NotFound("Nenhum Livro encontrado.");
                 }
-                else
-                {
-                    throw;
-                }
-            }
+                return Ok(livros);
 
-            return NoContent();
+            }
+            catch (Exception ex)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar carregar os Livros. Erro: {ex.Message}");
+            }
+        }
+
+        // GET: api/Livro/{parametro}
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Livro>> GetLivro(int id)
+        {
+            try
+            {
+                var livros = await _livroService.GetLivroByIdAsync(id);
+                if (_livroService.GetAllLivrosAsync() == null)
+                    return NotFound("Nenhum Livro encontrado.");
+                return Ok(livros);
+            }
+            catch (Exception ex)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar carregar os Livros. Erro: {ex.Message}");
+            }
+        }
+
+
+        [HttpGet("{titulo}/titulo")]
+        public async Task<ActionResult<Livro>> GetLivro(string titulo)
+        {
+            try
+            {
+                var livros = await _livroService.GetAllLivrosByTituloAsync(titulo);
+                if (livros == null)
+                {
+                    return NotFound("Nenhum Livro encontrado.");
+                }
+                return Ok(livros);
+
+            }
+            catch (Exception ex)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar carregar os Livros. Erro: {ex.Message}");
+            }
         }
 
         // POST: api/Livro
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Livro>> PostLivro(Livro livro)
         {
-          if (_context.Livros == null)
-          {
-              return Problem("Entity set 'ProLivrosAPIContext.Livros'  is null.");
-          }
-            _context.Livros.Add(livro);
-            await _context.SaveChangesAsync();
+            try
+            {
+                var _livro = await _livroService.AddLivro(livro);
+                if (_livro == null)
+                {
+                    return BadRequest("Erro ao adicionar livro.");
+                }
+                return Ok(_livro);
 
-            return CreatedAtAction("GetLivro", new { id = livro.Codl }, livro);
+            }
+            catch (Exception ex)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar adiicionar Livro . Erro: {ex.Message}");
+            }
         }
+
+        // PUT: api/Livro/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutLivro(int id, Livro livro)
+        {
+            try
+            {
+                var _livro = await _livroService.UpdateLivro(id, livro);
+                if (_livro == null)
+                {
+                    return BadRequest("Erro ao atualizar livro.");
+                }
+                return Ok(_livro);
+
+            }
+            catch (Exception ex)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar atualizar Livro . Erro: {ex.Message}");
+            }
+        }
+
 
         // DELETE: api/Livro/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLivro(int? id)
+        public async Task<IActionResult> DeleteLivro(int id)
         {
-            if (_context.Livros == null)
+            try
             {
-                return NotFound();
+                return await _livroService.DeleteLivro(id) ? 
+                    Ok("Livro excluído com sucesso!") : 
+                    BadRequest("Erro ao excluir Livro.");
             }
-            var livro = await _context.Livros.FindAsync(id);
-            if (livro == null)
+            catch (Exception ex)
             {
-                return NotFound();
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar excluir Livro . Erro: {ex.Message}");
             }
-
-            _context.Livros.Remove(livro);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool LivroExists(int? id)
-        {
-            return (_context.Livros?.Any(e => e.Codl == id)).GetValueOrDefault();
         }
     }
 }

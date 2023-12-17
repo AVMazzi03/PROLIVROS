@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Arch.EntityFrameworkCore.Design" Version="2.1.15" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.25" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.25">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -27,6 +28,10 @@
     <ProjectReference Include="..\prolivros.application\ProLivros.Application.csproj" />    
     <ProjectReference Include="..\prolivros.persistence\ProLivros.Persistence.csproj" />
 
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
