@@ -1,6 +1,10 @@
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using ProLivros.Persistence;
+<<<<<<< HEAD
+=======
+using ProLivros.Application;
+>>>>>>> PROLIVROS COMMIT-06
 
 namespace ProLivros5
 {
@@ -16,10 +20,24 @@ namespace ProLivros5
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+<<<<<<< HEAD
   
             
                         services.AddDbContext<ProLivrosContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ProLivrosAPIContext")));
                     
+=======
+
+
+            services.AddDbContext<ProLivrosContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ProLivrosAPIContext")));
+            services.AddScoped<ILivroService, LivroService>();
+            // services.AddScoped<IAssuntoService, AssuntoService>();
+            // services.AddScoped<<IAutorService, AutorService>();
+            services.AddScoped<IGeralPersistence, GeralPersistence>();
+            services.AddScoped<ILivroPersistence, LivroPersistence>();
+            // services.AddScoped< IAssuntoPersistence, AssuntoPersistence>();
+            // services.AddScoped< IAutorPersistence, AutorPersistence>();    
+
+>>>>>>> PROLIVROS COMMIT-06
             services.AddControllers();
             services.AddCors();
             services.AddSwaggerGen(c =>

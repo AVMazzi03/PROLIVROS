@@ -36,6 +36,10 @@
   <ItemGroup>
     <Folder Include="Contratos\" />
     <Folder Include="Interfaces\" />
+<<<<<<< HEAD
+=======
+    <Folder Include="Migrations\" />
+>>>>>>> PROLIVROS COMMIT-06
   </ItemGroup>
 
 

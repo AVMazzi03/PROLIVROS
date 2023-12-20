@@ -20,7 +20,11 @@ namespace ProLivros.Persistence
         #region LIVROS
         public async Task<Livro[]> GetAllLivrosAsync()
         {
+<<<<<<< HEAD
             IQueryable<Livro> query = _context.Livros;
+=======
+            IQueryable<Livro> query = _context.Livros.AsNoTracking();
+>>>>>>> PROLIVROS COMMIT-06
             query = query
                     .Include(l => l.LivroAssunto)
                     .ThenInclude(las => las.Assunto);

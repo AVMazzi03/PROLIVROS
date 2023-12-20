@@ -22,6 +22,11 @@ namespace ProLivros.Persistence
                     .WithMany()
                     .HasForeignKey(u => u.Autor_CodAu)
                     .IsRequired(true);
+<<<<<<< HEAD
+=======
+            builder.Navigation(l => l.Autor).AutoInclude();
+
+>>>>>>> PROLIVROS COMMIT-06
         }
     }
 }

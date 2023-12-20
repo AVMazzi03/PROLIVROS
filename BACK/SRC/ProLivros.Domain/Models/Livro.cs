@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+=======
+
+using System.ComponentModel.DataAnnotations.Schema;
+
+>>>>>>> PROLIVROS COMMIT-06
 
 namespace ProLivros.Domain
 {
@@ -27,9 +33,18 @@ namespace ProLivros.Domain
         public string? AnoPublicacao { get; set; }
         public string? Capa { get; set; }
 
+<<<<<<< HEAD
         [NotMapped]
         public IEnumerable<LivroAutor> LivroAutor { get; set; }
         [NotMapped]
         public IEnumerable<LivroAssunto> LivroAssunto { get; set; }
+=======
+
+
+        [NotMapped]
+        public IEnumerable<LivroAutor> LivroAutor { get; set; } = null;
+        [NotMapped]
+        public IEnumerable<LivroAssunto> LivroAssunto { get; set; } = null;
+>>>>>>> PROLIVROS COMMIT-06
     }
 }
